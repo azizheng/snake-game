@@ -36,13 +36,25 @@ while game_is_on:
     # detect collision with wall.
     if snake.head.xcor() > BOUNDARY or snake.head.ycor() > BOUNDARY or \
             snake.head.xcor() < NEG_BOUNDARY or snake.head.ycor() < NEG_BOUNDARY:
-        score.game_over()
-        game_is_on = False
+        score.reset()
+        snake.reset()
 
     # detect collision with tail
     for segment in snake.segments[1:]:
         if snake.head.distance(segment) < 10:
-            score.game_over()
-            game_is_on = False
+            score.reset()
+            snake.reset()
+
 
 screen.exitonclick()
+
+
+
+#day24 lesson
+
+# with open("data.txt") as file:
+#     contents = file.readline()
+#     print(contents)
+
+#with open("data.txt", mode="w") as file:
+#    file.write("new line here")
